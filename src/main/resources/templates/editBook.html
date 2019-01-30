@@ -2,13 +2,15 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{css/bootstrap.min.css}" />
-<title>Add a book</title>
+<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}"/>
+<title>Edit page</title>
 </head>
 <body>
-	<h1>Add a Book</h1>
+	<h1>Edit the information</h1>
 	<div>
-		<form th:object="${book}" th:action="@{save}" action="#" method="post">
+		<form th:object="${book}" th:action="@{/save}" action="#" method="post">
+		<label for="isbn">ID</label>
+		<input type="text" id="id"th:field="*{id}" /><br>
 		<label for="isbn">ISBN</label>
 		<input type="text" id="isbn"th:field="*{isbn}" /><br>
 		<label for="title">Title</label>

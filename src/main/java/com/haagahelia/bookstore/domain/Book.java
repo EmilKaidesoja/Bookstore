@@ -15,8 +15,7 @@ public class Book {
 	private int year, price;
 
 
-	public Book() {
-	}
+	public Book() {}
 
 	public Book(String isbn, String author, String title, int year, int price) {
 		super();

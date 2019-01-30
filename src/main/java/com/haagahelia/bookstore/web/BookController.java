@@ -1,5 +1,7 @@
 package com.haagahelia.bookstore.web;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -29,12 +31,17 @@ public class BookController {
 	@RequestMapping(value= "/save", method=RequestMethod.POST)
 	public String SaveBook(Book book) {
 		repository.save(book);
-		return "redirect:booklist";
+		return "redirect:/booklist";
 	}
 	@RequestMapping(value="/delete/{id}", method=RequestMethod.GET)
 	public String DeleteBook(@PathVariable("id")Long bookId, Model model) {
 		repository.deleteById(bookId);
 		return "redirect:/booklist";
 	}
+	@RequestMapping(value="/edit/{id}", method=RequestMethod.GET)
+	public String EditBook(@PathVariable("id")Long bookId, Model model) {
+		model.addAttribute("book", repository.findById(bookId));
+	return "editBook";
+}
 	
 }
