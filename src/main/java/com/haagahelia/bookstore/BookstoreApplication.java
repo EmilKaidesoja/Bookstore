@@ -19,14 +19,18 @@ public class BookstoreApplication {
 	}
 	
 	@Bean
-	public CommandLineRunner Demo(BookRepository repository) {
+	public CommandLineRunner Demo(BookRepository brepository, CategoryRepository crepository) {
 		return (args)-> {
 			log.info("Save a couple of books");
-			repository.save(new Book("01010101-01", "Java master", "Learn Java", 2015, 24));
-			repository.save(new Book("02020202-02", "SQL master", "Learn SQL", 2010, 19));
+			crepository.save(new Category("Education"));
+			crepository.save(new Category("Fiction"));
+			crepository.save(new Category("non-fiction"));
+			
+			brepository.save(new Book("01010101-01", "Java master", "Learn Java", 2015, 24, crepository.findByName("Education").get(0)));
+			brepository.save(new Book("02020202-02", "SQL master", "Learn SQL", 2010, 19, crepository.findByName("Education").get(0)));
 			
 			log.info("fetch all books");
-			for(Book book : repository.findAll()) {
+			for(Book book : brepository.findAll()) {
 				log.info(book.toString());
 			}
 		};
