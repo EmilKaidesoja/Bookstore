@@ -8,7 +8,7 @@ import javax.persistence.*;
 public class Category {
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
-	private Long categoryid;
+	private long categoryid;
 	private String name;
 	
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
@@ -29,11 +29,11 @@ public class Category {
 		this.books = books;
 	}
 
-	public Long getCategoryid() {
+	public long getCategoryid() {
 		return categoryid;
 	}
 
-	public void setCategoryid(Long categoryid) {
+	public void setCategoryid(long categoryid) {
 		this.categoryid = categoryid;
 	}
 

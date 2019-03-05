@@ -1,5 +1,7 @@
 package com.haagahelia.bookstore.web;
 
+import java.util.*;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,5 +47,14 @@ public class BookController {
 		model.addAttribute("categories", crepository.findAll());
 	return "editBook";
 }
+	@RequestMapping(value="/books", method=RequestMethod.GET)
+	public @ResponseBody List<Book> GetBooksRest() {
+		return (List<Book>) brepository.findAll();
+	}
+	
+	@RequestMapping(value="/book/{id}", method=RequestMethod.GET)
+	public @ResponseBody Optional<Book> GetBookByIdRest(@PathVariable("id") Long bookId){
+		return brepository.findById(bookId);
+	}
 	
 }

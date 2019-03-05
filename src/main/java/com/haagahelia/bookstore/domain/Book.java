@@ -2,15 +2,20 @@ package com.haagahelia.bookstore.domain;
 
 import javax.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+
+
 @Entity
 public class Book {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long id;
+	private long id;
 	private String isbn, title, author;
 	private int year, price;
 
 	@ManyToOne
+	@JsonIgnore
 	@JoinColumn(name = "categoryid")
 	private Category category;
 
@@ -27,11 +32,11 @@ public class Book {
 		this.category = category;
 	}
 
-	public Long getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(Long id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
