@@ -19,6 +19,11 @@ public class BookController {
 	@Autowired
 	private CategoryRepository crepository;
 	
+	@RequestMapping(value="/login")
+	public String login() {
+		return "login";
+	}
+	
 	@RequestMapping(value = "/booklist", method = RequestMethod.GET)
 	public String GetBooklist(Model model) {
 		model.addAttribute("booklist", brepository.findAll());
@@ -56,5 +61,7 @@ public class BookController {
 	public @ResponseBody Optional<Book> GetBookByIdRest(@PathVariable("id") Long bookId){
 		return brepository.findById(bookId);
 	}
+	
+	
 	
 }
