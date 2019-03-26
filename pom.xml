@@ -13,7 +13,7 @@
 	<groupId>com.example.bookstore</groupId>
 	<artifactId>Bookstore</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<packaging>war</packaging>
+	<packaging>jar</packaging>
 
 	<name>Bookstore</name>
 	<description>This is the Bookstore</description>
