@@ -1,4 +1,4 @@
-package com.example.bookstore.Bookstore;
+package com.haagahelia.bookstore;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

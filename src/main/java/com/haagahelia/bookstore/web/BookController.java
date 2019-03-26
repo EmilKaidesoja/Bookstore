@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.*;
 
 import com.haagahelia.bookstore.domain.*;
 
-
-
 @Controller
 public class BookController {
 	@Autowired
